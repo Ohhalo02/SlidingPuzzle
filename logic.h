@@ -3,7 +3,7 @@
 
 #include <cstdlib>
 #include <ctime>
-#include <fstream> // Thêm để lưu/đọc file
+#include <fstream>
 #include "defs.h"
 
 struct SlidingPuzzle {
@@ -14,7 +14,7 @@ struct SlidingPuzzle {
     bool gaveUp;
 
     SlidingPuzzle() : moveCount(0), highScore(-1), gaveUp(false) {
-        loadHighScore(); // Đọc highScore từ file khi khởi tạo
+        loadHighScore();
         init();
     }
 
@@ -25,7 +25,7 @@ struct SlidingPuzzle {
             inFile.close();
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loaded highScore: %d", highScore);
         } else {
-            highScore = -1; // Nếu file không tồn tại, giữ mặc định
+            highScore = -1;
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "No highScore file found, set to -1");
         }
     }
@@ -68,8 +68,7 @@ struct SlidingPuzzle {
     void init() {
         moveCount = 0;
         gaveUp = false;
-        // Không reset highScore ở đây để giữ giá trị từ file
-        loadHighScore(); // Đọc lại highScore để đảm bảo đồng bộ
+        loadHighScore();
 
         int values[BOARD_SIZE * BOARD_SIZE];
         for (int i = 0; i < BOARD_SIZE * BOARD_SIZE; i++) {
@@ -98,20 +97,7 @@ struct SlidingPuzzle {
             }
         } while (!isSolvable());
 
-        bool hasEight = false;
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                if (board[i][j] == 8) {
-                    hasEight = true;
-                    break;
-                }
-            }
-        }
-        if (!hasEight) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Value 8 not found in board after shuffle!");
-        } else {
-            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Board initialized successfully with value 8 present.");
-        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Board initialized successfully.");
     }
 
     void move(int row, int col) {
@@ -148,7 +134,7 @@ struct SlidingPuzzle {
         if (isSolved() && !gaveUp) {
             if (highScore == -1 || moveCount < highScore) {
                 highScore = moveCount;
-                saveHighScore(); // Lưu highScore vào file
+                saveHighScore();
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "High score updated: %d", highScore);
             }
         }
