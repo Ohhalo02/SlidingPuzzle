@@ -5,6 +5,8 @@
 - **Họ và tên**: Vũ Minh Hoàng
 
 ## Giới thiệu về game:
+![image](https://github.com/user-attachments/assets/7146d038-f99f-4716-8cd5-0889f3d4e270)
+
 Sliding Puzzle là một trò chơi giải đố cổ điển trên lưới 3x3, gồm 8 ô số (1-8) và 1 ô trống. Người chơi di chuyển các ô để sắp xếp số theo thứ tự từ 1 đến 8, với ô trống ở góc dưới cùng phải. Game được lập trình bằng C++ với thư viện SDL2, có các tính năng:
 - Xáo trộn ngẫu nhiên bàn cờ, đảm bảo luôn giải được.
 - Lưu kỷ lục số bước ít nhất ("Best") vào file `highscore.txt`.
