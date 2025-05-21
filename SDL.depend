@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1747365999 source:d:\sdl2\sdl\main.cpp
+	<iostream>
+	<SDL.h>
+	"defs.h"
+	"graphics.h"
+	"logic.h"
+
+1747339103 d:\sdl2\sdl\defs.h
+	<SDL.h>
+
+1747363384 d:\sdl2\sdl\graphics.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"defs.h"
+	"logic.h"
+
+1747366010 d:\sdl2\sdl\logic.h
+	<cstdlib>
+	<ctime>
+	<fstream>
+	"defs.h"
+
