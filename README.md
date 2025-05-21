@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6ba301b3-8721-4bcb-bfa5-19751edfd107)# Sliding Puzzle Game
+# Sliding Puzzle Game
 
 ## Thông tin người làm game
 - **Mã sinh viên**: 24021494
